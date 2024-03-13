@@ -34,13 +34,13 @@ if [ ! -f ".env" ]; then
     --email=admin@processmaker.com \
     --first-name=Admin \
     --last-name=User \
-    --db-host=mysql \
+    --db-host=pm4core-docker_mysql_1 \
     --db-port=3306 \
     --db-name=processmaker \
     --db-username=pm \
     --db-password=pass \
     --data-driver=mysql \
-    --data-host=mysql \
+    --data-host=pm4core-docker_mysql_1 \
     --data-port=3306 \
     --data-name=processmaker \
     --data-username=pm \

@@ -18,14 +18,8 @@ services:
     depends_on:
       - mysql
       - redis
-    networks:
-      - common_network
-
   redis:
     image: redis
-    networks:
-      - common_network
-
   mysql:
     image: mysql:5.7
     restart: always
@@ -36,14 +30,6 @@ services:
       MYSQL_PASSWORD: pass
     volumes:
       - database:/var/lib/mysql
-    networks:
-      - common_network
-
-networks:
-  common_network:
-    driver: bridge
-
 volumes:
   database:
   storage:
-
