@@ -20,7 +20,7 @@ services:
       - redis
     networks:
       common_network:
-        ipv4_address: 172.18.0.2
+        ipv4_address: 172.18.0.2 
 
   redis:
     image: redis
@@ -40,15 +40,13 @@ services:
       - database:/var/lib/mysql
     networks:
       common_network:
-        ipv4_address: 172.18.0.4 
+        ipv4_address: 172.18.0.4
 
 networks:
   common_network:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.18.0.0/16
-
-volumes:
+        - subnet: 172.18.0.0/24 
   database:
   storage:
