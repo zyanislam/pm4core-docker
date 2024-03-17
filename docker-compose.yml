@@ -19,12 +19,14 @@ services:
       - mysql
       - redis
     networks:
-      - common_network
+      common_network:
+        ipv4_address: 172.18.0.2
 
   redis:
     image: redis
     networks:
-      - common_network
+      common_network:
+        ipv4_address: 172.18.0.3
 
   mysql:
     image: mysql:5.7
@@ -37,11 +39,15 @@ services:
     volumes:
       - database:/var/lib/mysql
     networks:
-      - common_network
+      common_network:
+        ipv4_address: 172.18.0.4 
 
 networks:
   common_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
 
 volumes:
   database:
