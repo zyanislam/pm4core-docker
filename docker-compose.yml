@@ -21,16 +21,18 @@ services:
     networks:
       common_network:
         ipv4_address: 172.18.0.2  
+    restart: unless-stopped
+        
 
   redis:
     image: redis
     networks:
       common_network:
         ipv4_address: 172.18.0.3  
+    restart: unless-stopped
 
   mysql:
     image: mysql:5.7
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password 
       MYSQL_DATABASE: processmaker
@@ -41,13 +43,14 @@ services:
     networks:
       common_network:
         ipv4_address: 172.18.0.4  
+    restart: unless-stopped
 
 networks:
   common_network:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.18.0.0/24  
+        - subnet: 172.18.0.0/24
 
 volumes:
   database:
