@@ -20,21 +20,18 @@ services:
       - redis
     networks:
       common_network:
-        ipv4_address: 172.18.0.2  
-    restart: unless-stopped
-        
+        ipv4_address: 172.18.0.10  # Choose an address within the subnet
 
   redis:
     image: redis
     networks:
       common_network:
-        ipv4_address: 172.18.0.3  
-    restart: unless-stopped
+        ipv4_address: 172.18.0.20  # Choose an address within the subnet
 
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: processmaker
       MYSQL_USER: pm
       MYSQL_PASSWORD: pass
@@ -42,8 +39,7 @@ services:
       - database:/var/lib/mysql
     networks:
       common_network:
-        ipv4_address: 172.18.0.4  
-    restart: unless-stopped
+        ipv4_address: 172.18.0.30  # Choose an address within the subnet
 
 networks:
   common_network:
@@ -55,3 +51,4 @@ networks:
 volumes:
   database:
   storage:
+
