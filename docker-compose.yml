@@ -12,7 +12,7 @@ services:
     volumes:
       - ${PM_DOCKER_SOCK}:/var/run/docker.sock
       - storage:/code/pm4/storage
-      - /home/quantum/Downloads/Projects/pm4core-docker/build-files/Dockerfile:/code/pm4/vendor/processmaker/docker-executor-php/Dockerfile
+      - ./build-files/Dockerfile:/code/pm4/vendor/processmaker/docker-executor-php/Dockerfile
     links:
       - redis
       - mysql
